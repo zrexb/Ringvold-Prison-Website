@@ -1,0 +1,553 @@
+/* ==========================================
+   1. MODERN MONOCHROME DESIGN SYSTEM
+   ========================================== */
+:root {
+    /* Pure & Matte Neutrals */
+    --bg-main: #0a0a0a;               /* Negro ultra oscuro de fondo */
+    --color-surface-0: #121212;       /* Superficie base de modales/tarjetas */
+    --color-surface-200: #1a1a1a;     /* Gris oscuro para elementos interactivos */
+    --color-surface-300: #262626;     /* Gris medio para bordes o estados */
+    --color-shift-300: #333333;       /* Barra de scroll */
+    
+    /* Content Colors */
+    --color-content-emphasis: #ffffff; /* Blanco puro para títulos */
+    --color-content-subtle: #8a8a8a;   /* Gris claro para textos secundarios */
+    
+    /* Interactive States (Monochrome) */
+    --color-state-hover: rgba(255, 255, 255, 0.06); /* Blanco ultra sutil */
+    --color-state-press: rgba(255, 255, 255, 0.12);
+    
+    /* Typography */
+    --font-size-500: 20px;
+    --font-weight-700: 700;
+    --padding-xsmall: 8px;
+}
+
+/* ==========================================
+   2. BASE & DYNAMIC LAYOUT
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--color-content-emphasis);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism Header */
+header {
+    background-color: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+nav .logo {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-content-emphasis);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: var(--color-content-subtle);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--color-content-emphasis);
+}
+
+/* Dynamic Hero Section */
+.hero {
+    text-align: center;
+    padding: 180px 20px 100px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 70%);
+}
+
+.hero h1 {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #a3a3a3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--color-content-subtle);
+    max-width: 540px;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Premium Minimal Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 30px; /* Bordes completamente redondeados (más moderno) */
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: -0.2px;
+}
+
+.btn-play {
+    background-color: var(--color-content-emphasis);
+    color: var(--bg-main);
+}
+
+.btn-play:hover {
+    background-color: #e5e5e5;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-group, .btn-discord {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-content-emphasis);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-group:hover, .btn-discord:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #404040;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* ==========================================
+   3. YOUR CUSTOM UI COMPONENTS (Modernized)
+   ========================================== */
+
+/* Profile Carousel Arrows */
+.profile-carousel .scroll-arrow.next, .profile-carousel .scroll-arrow.prev {
+  background-color: var(--color-surface-200);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+@media (pointer: fine) {
+  .profile-carousel .scroll-arrow.next, .profile-carousel .scroll-arrow.prev {
+    display: flex;
+  }
+}
+@media (max-width: 991px), (min-width: 1010px) {
+  .profile-carousel .scroll-arrow.next.next, .profile-carousel .scroll-arrow.prev.next { right: -20px; }
+  .profile-carousel .scroll-arrow.next.prev, .profile-carousel .scroll-arrow.prev.prev { left: -20px; }
+}
+.profile-carousel .scroll-arrow.next:hover, .profile-carousel .scroll-arrow.prev:hover {
+  background-color: var(--color-content-emphasis);
+  color: var(--bg-main);
+}
+
+/* User List Modal */
+.user-list-modal-content {
+  height: min(540px, 90vh) !important;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border-radius: 20px; /* Bordes más suaves */
+  background: var(--color-surface-0);
+  border: 1px solid var(--color-surface-300);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 543px) {
+  .user-list-modal-content {
+    min-width: calc(100vw - 40px) !important;
+    max-width: calc(100vw - 40px) !important;
+  }
+}
+@media (min-width: 543px) {
+  .user-list-modal-content {
+    width: 540px;
+    max-width: 90vw !important;
+  }
+}
+
+.user-list-modal-title-bar-title {
+  flex: 1 0 0;
+  text-align: left;
+  font-size: var(--font-size-500);
+  font-weight: var(--font-weight-700);
+  line-height: 120%;
+  letter-spacing: -0.5px;
+  color: var(--color-content-emphasis);
+}
+
+.user-list-modal-body {
+  padding-right: 10px !important;
+  padding-bottom: 0px !important;
+}
+
+/* User List Container & Minimal Scrollbar */
+.user-list-container {
+  background: none;
+  background-color: transparent;
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+.user-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+.user-list-container::-webkit-scrollbar-thumb {
+  background-color: var(--color-shift-300);
+  border-radius: 10px;
+}
+
+/* User Item Rows */
+.user-item-clickable {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  padding: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.user-item-clickable:hover {
+  background-color: var(--color-state-hover);
+  transform: scale(1.01);
+}
+.user-item-clickable:active {
+  background-color: var(--color-state-press);
+  transform: scale(0.99);
+}
+.user-item-clickable .avatar-card-fullbody {
+  width: 48px;
+  height: 48px;
+  margin: 8px;
+  flex-shrink: 0;
+}
+.user-item-clickable .avatar-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Filter Selectors */
+.filter-selector-container {
+  padding: var(--padding-xsmall) 0;
+  position: relative;
+  min-height: 32px;
+}
+@media (max-width: 543px) { .filter-selector-container { width: 80%; } }
+@media (min-width: 543px) { .filter-selector-container { width: 200px; } }
+@media (max-width: 543px) { .filter-selector-dropdown-popover { width: 100%; } }
+@media (min-width: 543px) { .filter-selector-dropdown-popover { width: 200px; } }
+
+
+
+/* ==========================================
+   4. MODERN DROPDOWN MENU
+   ========================================== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.dropdown-trigger span {
+    font-size: 9px;
+    transition: transform 0.3s ease;
+    color: var(--color-content-subtle);
+}
+
+/* Contenedor de la columna desplegable */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 15px); /* Espacio sutil debajo del botón */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: 160px;
+    background-color: rgba(18, 18, 18, 0.95); /* Negro puro mate sutilmente transparente */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    pointer-events: none; /* Evita clics fantasmas cuando está oculto */
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Enlaces individuales dentro de la columna */
+.dropdown-menu a {
+    color: var(--color-content-subtle) !important;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+/* Estados al pasar el mouse por los enlaces del menú */
+.dropdown-menu a:hover {
+    background-color: var(--color-state-hover);
+    color: var(--color-content-emphasis) !important;
+    padding-left: 18px; /* Pequeño desplazamiento dinámico */
+}
+
+/* Mostrar menú al hacer Hover en el contenedor */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Rotar la flechita dinámicamente */
+.dropdown:hover .dropdown-trigger span {
+    transform: rotate(180deg);
+    color: var(--color-content-emphasis);
+}
+
+
+
+/* ==========================================
+   5. FAQ PAGE STYLES (Modern & Minimalist)
+   ========================================== */
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 160px 20px 80px 20px;
+    flex: 1;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+    background: linear-gradient(180deg, #ffffff 0%, #a3a3a3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faq-header p {
+    color: var(--color-content-subtle);
+    font-size: 16px;
+}
+
+.faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Reutilizando la lógica de tus contenedores modernos */
+.faq-card {
+    background-color: var(--color-surface-0);
+    border: 1px solid var(--color-surface-300);
+    border-radius: 16px;
+    padding: 30px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.faq-question {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 15px;
+    color: var(--color-content-emphasis);
+}
+
+.faq-answer {
+    color: var(--color-content-subtle);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Enlaces y listas dentro del FAQ */
+.faq-links-list {
+    list-style: none;
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+.faq-links-list li {
+    margin-bottom: 8px;
+}
+
+.faq-links-list a, .faq-btn-link {
+    color: var(--color-content-emphasis);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.2s ease;
+}
+
+.faq-links-list a:hover, .faq-btn-link:hover {
+    border-bottom-color: var(--color-content-emphasis);
+    color: #e5e5e5;
+}
+
+.faq-btn-link {
+    display: inline-block;
+    margin-top: 12px;
+    border-bottom: none;
+    font-size: 14px;
+}
+
+/* Indicador de página activa en el Nav */
+nav ul li a.active {
+    color: var(--color-content-emphasis);
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   6. MODERN COMING SOON LAYOUT
+   ========================================== */
+.coming-soon-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 160px 20px 80px 20px;
+}
+
+.coming-soon-container h1 {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: var(--color-content-subtle);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* El cartel destacado de Coming Soon */
+.coming-soon-text {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #333333 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+}
+
+/* Pequeña etiqueta superior de aviso */
+.badge {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.divider {
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 30px;
+}
+
+/* Botón minimalista secundario para regresar */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-content-subtle);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    padding: 10px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.02);
+}
